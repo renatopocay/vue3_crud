@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Dashboard from "../views/dashboard/DashboardView.vue"
+import ProductList from "../views/products/ProductListView.vue"
+import Product from "../views/products/ProductView.vue"
 
 const routes = [
   {
@@ -8,12 +10,14 @@ const routes = [
     component: Dashboard,
   },
   {
+    path: "/product",
+    name: "product",
+    component: Product,
+  },
+  {
     path: "/products",
     name: "products",
-    component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/products/ProductsView.vue"
-      ),
+    component: ProductList,
   },
 ]
 
