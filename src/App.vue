@@ -1,10 +1,26 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <HeaderCpt />
+  <MenuCpt />
+  <ContentCpt />
+  <FooterCpt />
 </template>
+
+<script>
+import HeaderCpt from "@/components/main/Header.vue"
+import MenuCpt from "@/components/main/Menu.vue"
+import ContentCpt from "@/components/main/Content.vue"
+import FooterCpt from "@/components/main/Footer.vue"
+
+export default {
+  name: "App",
+  components: {
+    HeaderCpt,
+    MenuCpt,
+    ContentCpt,
+    FooterCpt,
+  },
+}
+</script>
 
 <style>
 #app {
