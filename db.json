@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": "10.125.78.E",
+      "descricao": "Garrafa vidro tipo A1",
+      "dataReferencia": "2019-10-21",
+      "valorCusto": 13.17,
+      "tipo": "PROPRIO"
+    }
+  ]
+}

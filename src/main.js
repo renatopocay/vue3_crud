@@ -1,5 +1,17 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue"
+import App from "./App.vue"
+import router from "./router"
+import axios from "axios"
 
-createApp(App).use(router).mount('#app')
+const globalApp = {
+  data() {
+    return {
+      base_url: "http://localhost:3001",
+      http: axios,
+    }
+  },
+}
+
+const app = createApp(App).use(router)
+app.mixin(globalApp)
+app.mount("#app")
