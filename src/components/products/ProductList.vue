@@ -1,20 +1,28 @@
 <template>
   <div>
     <input type="button" value="Adicionar" v-on:click="createProduct()" /><br />
-    <li v-for="product in products" :key="product.id">
-      {{ product.id }}
-      {{ product.sky }}
-      {{ product.descricao }}
-      {{ product.valorCusto }}
-
-      <div>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>SKU</th>
+        <th>Descrição</th>
+        <th>Valor custo</th>
+        <th></th>
+      </tr>
+      <tr v-for="product in products" :key="product.id">
+        <td>{{ product.id }}</td>
+        <td v-on:click="editProduct(product.id)">
+          {{ product.sku }}
+        </td>
+        <td>{{ product.descricao }}</td>
+        <td>{{ product.valorCusto }}</td>
         <input
           type="button"
           value="Excluir"
           v-on:click="deleteProduct(product.id)"
         />
-      </div>
-    </li>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -27,12 +35,12 @@ export default {
     }
   },
   methods: {
-    // Create Products
+    // Create Product
     createProduct() {
       this.$router.push({ path: "/product/" })
     },
 
-    // Delete Products
+    // Delete Product
     deleteProduct(id) {
       this.http
         .delete(this.base_url + "/products/" + id)
@@ -42,6 +50,11 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+
+    // Edit Product
+    editProduct(id) {
+      this.$router.push({ path: "/product/" + id })
     },
 
     // Show Products
