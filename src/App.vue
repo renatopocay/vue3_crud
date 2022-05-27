@@ -1,8 +1,16 @@
 <template>
-  <HeaderCpt />
-  <MenuCpt />
-  <ContentCpt />
-  <FooterCpt />
+  <div class="common-layout">
+    <el-container>
+      <el-header><HeaderCpt /></el-header>
+      <el-container>
+        <el-aside id="sidemenu"><MenuCpt /></el-aside>
+        <el-container>
+          <el-main><ContentCpt /></el-main>
+        </el-container>
+      </el-container>
+    </el-container>
+    <el-footer><FooterCpt /></el-footer>
+  </div>
 </template>
 
 <script>
@@ -42,5 +50,13 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.el-icon {
+  cursor: pointer;
+}
+
+.el-menu-item.is-active {
+  background: #f0f0f0 !important;
 }
 </style>
