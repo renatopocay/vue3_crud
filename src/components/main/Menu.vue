@@ -4,7 +4,7 @@
 
   <el-row class="tac">
     <el-col :span="12">
-      <h5 class="mb-2">Menu Opções</h5>
+      <h5 id="menutitle" class="mb-2">Menu Opções</h5>
       <el-menu default-active="1" class="el-menu-vertical-demo">
         <el-menu-item index="1">
           <el-link type="primary" v-on:click="this.$router.push({ path: '/' })"
@@ -26,5 +26,10 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+  padding-left: 10px;
+}
+
+#menutitle {
+  text-align: right;
 }
 </style>

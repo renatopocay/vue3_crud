@@ -1,16 +1,22 @@
 <template>
-  <div class="flex justify-between items-center flex-wrap">
-    <el-row>
-      <el-col :span="24">
-        <el-button
-          type="primary"
-          round
-          v-on:click="$router.push({ path: '/products' })"
-          >Produtos</el-button
-        >
-      </el-col>
-    </el-row>
-  </div>
+  <br />
+  <el-row :gutter="24">
+    <el-col :span="4">
+      <el-button
+        id="btndash"
+        type="primary"
+        text
+        bg
+        v-on:click="$router.push({ path: '/products' })"
+        >Produtos</el-button
+      >
+    </el-col>
+    <el-col :span="4"> </el-col>
+    <el-col :span="4"></el-col>
+    <el-col :span="4"></el-col>
+    <el-col :span="4"></el-col>
+    <el-col :span="4"></el-col>
+  </el-row>
 </template>
 
 <script>
@@ -18,3 +24,16 @@ export default {
   name: "DashboardCpt",
 }
 </script>
+
+<style>
+#btndash {
+  width: 100px;
+  height: 100px;
+}
+#divdash {
+  position: center;
+  cursor: pointer;
+  padding: 40px;
+  background: #f0f0f0;
+}
+</style>

@@ -6,7 +6,8 @@
     "app_server": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "api_server": "json-server --watch db.json --port 3001 --delay 250"
+    "api_server": "json-server --watch db.json --port 3001 --delay 250",
+    "dev_server": "vue-cli-service serve & json-server --watch db.json --port 3001 --delay 250"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.0-beta.0",

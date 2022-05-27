@@ -35,7 +35,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -58,5 +57,10 @@ nav a.router-link-exact-active {
 
 .el-menu-item.is-active {
   background: #f0f0f0 !important;
+}
+
+.el-menu-item {
+  position: center;
+  text-align: center !important;
 }
 </style>

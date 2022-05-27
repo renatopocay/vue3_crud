@@ -15,35 +15,39 @@
     </el-col>
     <el-col :span="18"
       ><el-button type="success" v-on:click="createProduct()"
-        >Adicionar <el-icon><Plus /></el-icon></el-button
+        >Adicionar &nbsp;<el-icon><Plus /></el-icon></el-button
     ></el-col>
     <el-col :span="6"
-      ><!--<el-input
-        v-model="searchproduct"
+      ><el-input
+        v-model="search"
         class="w-50 m-2"
         placeholder="Pesquisar ..."
+        @keyup="searchproduct"
       >
         <template #prefix>
           <el-icon class="el-input__icon"><search /></el-icon>
         </template> </el-input
-    >--></el-col
-    >
+    ></el-col>
   </el-row>
   <br />
-  <el-table :data="products" style="width: 100%" border v-loading="loading">
-    <el-table-column prop="id" label="ID" width="180" />
-    <el-table-column label="SKU" width="180">
+  <el-table
+    :data="productsFilter"
+    :table-layout="auto"
+    border
+    v-loading="loading"
+  >
+    <el-table-column prop="id" label="ID" />
+    <el-table-column label="SKU">
       <template #default="p">
         <el-link @click="editProduct(p.row.id)" type="primary">
           {{ p.row.sku }}
         </el-link>
       </template>
     </el-table-column>
-    <el-table-column prop="descricao" label="Descrição" width="180" />
+    <el-table-column prop="descricao" label="Descrição" />
     <el-table-column
       prop="valorCusto"
       label="Valor custo"
-      width="180"
       :formatter="formatter"
     />
     <el-table-column>
@@ -77,9 +81,31 @@ export default {
     return {
       loading: true,
       products: [],
+      productsFilter: [],
+      search: "",
     }
   },
   methods: {
+    // Convert Object to String to search
+    objectToString(object) {
+      return JSON.stringify(Object.values(object)).toLowerCase()
+    },
+
+    // Search product
+    searchproduct(e) {
+      if (e.key === "Escape") {
+        this.search = ""
+      }
+      if (this.search) {
+        this.productsFilter = this.products.filter(p => {
+          return (
+            this.objectToString(p).indexOf(e.target.value.toLowerCase()) > 0
+          )
+        })
+      } else {
+        this.productsFilter = this.products
+      }
+    },
     // Message
     message(code, message, type) {
       ElNotification({
@@ -127,6 +153,7 @@ export default {
         .get(url)
         .then(response => {
           this.products = response.data
+          this.productsFilter = response.data
           this.loading = false
         })
         .catch(error => {
