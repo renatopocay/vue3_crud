@@ -7,6 +7,12 @@
       "dataReferencia": "2019-10-21",
       "valorCusto": 13.17,
       "tipo": "PROPRIO"
+    },
+    {
+      "valorCusto": 11.11,
+      "sku": "Faca",
+      "descricao": "Faca",
+      "id": 2
     }
   ]
 }

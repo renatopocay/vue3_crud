@@ -1,24 +1,18 @@
 # vue3_crud
 
 ## Project setup
+
 ```
+git clone https://github.com/renatopocay/vue3_crud.git
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+nvm install 16.15.0
+nvm use 16.15.0
+cd vue3_crud
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
-```
-yarn serve
-```
 
-### Compiles and minifies for production
 ```
-yarn build
+npm run dev_server
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
